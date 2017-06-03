@@ -9,13 +9,14 @@
 	});
 
 		$('button').on('click', function(){
-			var firstPointLet = parseFloat($('#firstPoint').val().substring( 0, 10 ));
-			var firstPointLng = parseFloat($('#firstPoint').val().substring( 10, 20 ));
-			var secondPointLet = parseFloat($('#secondPoint').val().substring( 0, 10 ));
-			var secondPointLng = parseFloat($('#secondPoint').val().substring( 10, 20 ));
-			
-			var firstPlace = {lat: firstPointLet, lng: firstPointLng};
-			var secondPlase = {lat: secondPointLet, lng: secondPointLng};
+			var firstInputVal = $('#firstPoint').val();
+			var secondInputVal = $('#secondPoint').val();
+
+			var firstPoint = firstInputVal.split(',');
+			var secondPoint = secondInputVal.split(',');
+
+			var firstPlace = {lat: parseFloat(firstPoint[0]), lng: parseFloat(firstPoint[1])};
+			var secondPlase = {lat: parseFloat(secondPoint[0]), lng: parseFloat(secondPoint[1])};
 
 			var marker = new google.maps.Marker({
 				position: firstPlace,
